@@ -583,7 +583,128 @@ setpoint_definitions = {
                                 ],
                             },
                         },
-                    }
+                    },
+                    "Water_Flow_Setpoint": {
+                        "tags": [TAG.Point, TAG.Water, TAG.Flow, TAG.Setpoint],
+                        "subclasses": {
+                            "Supply_Water_Flow_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Supply,
+                                    TAG.Water,
+                                    TAG.Flow,
+                                    TAG.Setpoint,
+                                ],
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Water_Flow_Setpoint"
+                                ],
+                                "subclasses": {
+                                    "Chilled_Water_Supply_Flow_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Chilled,
+                                            TAG.Water,
+                                            TAG.Supply,
+                                            TAG.Flow,
+                                            TAG.Setpoint,
+                                        ],
+                                        OWL.equivalentClass: BRICK[
+                                            "Chilled_Water_Discharge_Flow_Setpoint"
+                                        ],
+                                    },
+                                    "Hot_Water_Supply_Flow_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Supply,
+                                            TAG.Flow,
+                                            TAG.Setpoint,
+                                        ],
+                                        OWL.equivalentClass: BRICK[
+                                            "Hot_Water_Discharge_Flow_Setpoint"
+                                        ],
+                                    },
+                                },
+                            },
+                            "Discharge_Water_Flow_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Discharge,
+                                    TAG.Water,
+                                    TAG.Flow,
+                                    TAG.Setpoint,
+                                ],
+                                "subclasses": {
+                                    "Chilled_Water_Discharge_Flow_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Chilled,
+                                            TAG.Water,
+                                            TAG.Discharge,
+                                            TAG.Flow,
+                                            TAG.Setpoint,
+                                        ],
+                                    },
+                                    "Hot_Water_Discharge_Flow_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Discharge,
+                                            TAG.Flow,
+                                            TAG.Setpoint,
+                                        ],
+                                    },
+                                },
+                            },
+                            "Entering_Water_Flow_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Entering,
+                                    TAG.Water,
+                                    TAG.Flow,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Leaving_Water_Flow_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Leaving,
+                                    TAG.Water,
+                                    TAG.Flow,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Hot_Water_Flow_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Hot,
+                                    TAG.Water,
+                                    TAG.Flow,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Chilled_Water_Flow_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Chilled,
+                                    TAG.Water,
+                                    TAG.Flow,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Bypass_Water_Flow_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Bypass,
+                                    TAG.Water,
+                                    TAG.Flow,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                        },
+                    },
                 },
             },
             "Humidity_Setpoint": {
@@ -672,6 +793,9 @@ setpoint_definitions = {
                                     TAG.Air,
                                     TAG.Supply,
                                 ],
+                                OWL.equivalentClass: BRICK[
+                                    "Discharge_Air_Humidity_Setpoint"
+                                ],
                             },
                         },
                     },
@@ -719,26 +843,43 @@ setpoint_definitions = {
             "Pressure_Setpoint": {
                 "subclasses": {
                     "Differential_Pressure_Setpoint": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Differential,
+                            TAG.Pressure,
+                            TAG.Setpoint,
+                        ],
                         "subclasses": {
-                            "Chilled_Water_Differential_Pressure_Setpoint": {
+                            "Water_Differential_Pressure_Setpoint": {
                                 "tags": [
                                     TAG.Point,
-                                    TAG.Chilled,
                                     TAG.Water,
                                     TAG.Differential,
                                     TAG.Pressure,
                                     TAG.Setpoint,
                                 ],
-                            },
-                            "Hot_Water_Differential_Pressure_Setpoint": {
-                                "tags": [
-                                    TAG.Point,
-                                    TAG.Hot,
-                                    TAG.Water,
-                                    TAG.Differential,
-                                    TAG.Pressure,
-                                    TAG.Setpoint,
-                                ],
+                                "subclasses": {
+                                    "Chilled_Water_Differential_Pressure_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Chilled,
+                                            TAG.Water,
+                                            TAG.Differential,
+                                            TAG.Pressure,
+                                            TAG.Setpoint,
+                                        ],
+                                    },
+                                    "Hot_Water_Differential_Pressure_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Hot,
+                                            TAG.Water,
+                                            TAG.Differential,
+                                            TAG.Pressure,
+                                            TAG.Setpoint,
+                                        ],
+                                    },
+                                },
                             },
                             "Load_Shed_Differential_Pressure_Setpoint": {
                                 "parents": [BRICK.Load_Shed_Setpoint],
@@ -769,12 +910,6 @@ setpoint_definitions = {
                                 ],
                             },
                         },
-                        "tags": [
-                            TAG.Point,
-                            TAG.Differential,
-                            TAG.Pressure,
-                            TAG.Setpoint,
-                        ],
                     },
                     "Static_Pressure_Setpoint": {
                         "subclasses": {
@@ -1462,6 +1597,24 @@ setpoint_definitions = {
                                     },
                                 },
                             },
+                            "Entering_Air_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Entering,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Leaving_Air_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Leaving,
+                                    TAG.Air,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
                             "Outside_Air_Temperature_Setpoint": {
                                 "subclasses": {
                                     "Low_Outside_Air_Temperature_Enable_Setpoint": {
@@ -1641,9 +1794,31 @@ setpoint_definitions = {
                     },
                     "Cooling_Temperature_Setpoint": {
                         "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Cool],
+                        "subclasses": {
+                            "Unoccupied_Cooling_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Unoccupied,
+                                    TAG.Cooling,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                        },
                     },
                     "Heating_Temperature_Setpoint": {
                         "tags": [TAG.Point, TAG.Temperature, TAG.Setpoint, TAG.Heat],
+                        "subclasses": {
+                            "Unoccupied_Heating_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Unoccupied,
+                                    TAG.Heating,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                        },
                     },
                     "Schedule_Temperature_Setpoint": {
                         "tags": [
@@ -1652,6 +1827,55 @@ setpoint_definitions = {
                             TAG.Setpoint,
                             TAG.Schedule,
                         ],
+                    },
+                    "Radiant_Panel_Temperature_Setpoint": {
+                        "tags": [
+                            TAG.Point,
+                            TAG.Radiant,
+                            TAG.Panel,
+                            TAG.Temperature,
+                            TAG.Setpoint,
+                        ],
+                        "subclasses": {
+                            "Inside_Face_Surface_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Inside,
+                                    TAG.Face,
+                                    TAG.Surface,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Outside_Face_Surface_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Outside,
+                                    TAG.Face,
+                                    TAG.Surface,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
+                            "Embedded_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Embedded,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                                "subclasses": {
+                                    "Core_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Core,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                        ],
+                                    },
+                                },
+                            },
+                        },
                     },
                     "Water_Temperature_Setpoint": {
                         "subclasses": {
@@ -1741,6 +1965,40 @@ setpoint_definitions = {
                                     },
                                 },
                             },
+                            "Return_Water_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Return,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                                "subclasses": {
+                                    "Differential_Supply_Return_Water_Temperature_Setpoint": {
+                                        "tags": [
+                                            TAG.Point,
+                                            TAG.Differential,
+                                            TAG.Supply,
+                                            TAG.Return,
+                                            TAG.Water,
+                                            TAG.Temperature,
+                                            TAG.Setpoint,
+                                        ],
+                                        "parents": [
+                                            BRICK.Differential_Water_Temperature_Setpoint
+                                        ],
+                                    },
+                                },
+                            },
+                            "Differential_Water_Temperature_Setpoint": {
+                                "tags": [
+                                    TAG.Point,
+                                    TAG.Differential,
+                                    TAG.Water,
+                                    TAG.Temperature,
+                                    TAG.Setpoint,
+                                ],
+                            },
                             "Entering_Water_Temperature_Setpoint": {
                                 "tags": [
                                     TAG.Point,
@@ -1766,7 +2024,7 @@ setpoint_definitions = {
                                     TAG.Water,
                                     TAG.Temperature,
                                     TAG.Setpoint,
-                                ]
+                                ],
                             },
                             "Max_Water_Temperature_Setpoint": {
                                 "tags": [
@@ -1775,7 +2033,7 @@ setpoint_definitions = {
                                     TAG.Water,
                                     TAG.Temperature,
                                     TAG.Setpoint,
-                                ]
+                                ],
                             },
                         },
                         "tags": [TAG.Point, TAG.Water, TAG.Temperature, TAG.Setpoint],
